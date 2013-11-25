@@ -1,0 +1,14 @@
+1384449633.39 ready to start servers!
+1384449633.39 servers started!
+1384449633.41 Bad message size
+['  File "uppir_mirror.py", line 399, in main\n    _send_mirrorinfo()\n', '  File "uppir_mirror.py", line 109, in _send_mirrorinfo\n    uppirlib.transmit_mirrorinfo(mymirrorinfo, _global_manifestdict[\'vendorhostname\'], _global_manifestdict[\'vendorport\'])\n', '  File "/home/fu/workspaces/uppir/uppirlib.py", line 175, in transmit_mirrorinfo\n    answer = _remote_query_helper(vendorlocation, "MIRRORADVERTISE"+json.dumps(mirrorinfo), defaultvendorport)\n', '  File "/home/fu/workspaces/uppir/uppirlib.py", line 335, in _remote_query_helper\n    rawanswer = session.recvmessage(serversocket)\n', '  File "/home/fu/workspaces/uppir/session.py", line 41, in recvmessage\n    raise ValueError, "Bad message size"\n']
+1385152026.62 ready to start servers!
+1385152026.63 servers started!
+1385152071.47 ready to start servers!
+1385152071.47 servers started!
+1385152088.41 ready to start servers!
+1385152088.41 servers started!
+1385152106.19 ready to start servers!
+1385152106.19 servers started!
+1385152120.11 ready to start servers!
+1385152120.11 servers started!
