@@ -45,7 +45,6 @@ import random
 
 def _reconstruct_block(blockinfolist):
   # private helper to reconstruct a block
-  #to do is here
   # xor the blocks together
   currentresult = blockinfolist[0]['xorblock']
   for xorblockdict in blockinfolist[1:]:
@@ -164,7 +163,7 @@ class RandomXORRequestor:
     #these mirror will receive the strings really used to xor
     half = (len(self.activemirrorinfolist)/2)+1
     self.actural_mirror_list = self.activemirrorinfolist[:half]
-    print 'The mirror we really "used"',[m['mirrorinfo'] for m in self.actural_mirror_list],half
+    print 'The mirror we really "used"',[m['mirrorinfo'] for m in self.actural_mirror_list]
     bitstringlength = uppirlib.compute_bitstring_length(manifestdict['blockcount'])
     # let's generate the bitstrings
     for thisrequestinfo in self.activemirrorinfolist:
@@ -395,6 +394,7 @@ class RandomXORRequestor:
 
           # it should be safe to delete this
           del self.returnedxorblocksdict[blocknumber]
+          del self.neededreturnedxorblocksdict[blocknumber]
           return
   
       raise Exception("InternalError: Unknown mirror in notify_failure")
