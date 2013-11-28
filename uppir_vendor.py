@@ -193,7 +193,9 @@ class ThreadedVendorRequestHandler(SocketServer.BaseRequestHandler):
 
     # for logging purposes, get the remote info
     remoteip, remoteport = self.request.getpeername()
-
+    #hack
+    if remoteip == '10.144.150.154':
+      remoteip = '54.225.165.33'
     # if it's a request for a XORBLOCK
     if requeststring == 'GET MANIFEST':
 
@@ -326,11 +328,11 @@ def parse_options():
   parser = optparse.OptionParser()
 
   # I should use these from the manifest, not the command line...
-#  parser.add_option("","--ip", dest="ip", type="string", metavar="IP", 
-#        default="0.0.0.0", help="Listen for clients on the following IP")
+  parser.add_option("","--ip", dest="ip", type="string", metavar="IP", 
+        default="0.0.0.0", help="Listen for clients on the following IP")
 
-#  parser.add_option("","--port", dest="port", type="int", metavar="portnum", 
-#        default=62293, help="Run the vendor on the following port (default 62293)")
+  parser.add_option("","--port", dest="port", type="int", metavar="portnum", 
+        default=62293, help="Run the vendor on the following port (default 62293)")
 
   parser.add_option("","--manifestfile", dest="manifestfilename", 
         type="string", default="manifest.dat",
@@ -391,7 +393,6 @@ def main():
 
   vendorip = manifestdict['vendorhostname']
   vendorport = manifestdict['vendorport']
-  
   # We should detach here.   I don't do it earlier so that error
   # messages are written to the terminal...   I don't do it later so that any
   # threads don't exist already.   If I do put it much later, the code hangs...
@@ -404,7 +405,6 @@ def main():
  
   # first, let's fire up the upPIR server
   start_vendor_service(manifestdict, vendorip, vendorport)
-
 
   _log('servers started!')
 

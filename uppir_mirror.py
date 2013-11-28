@@ -178,8 +178,10 @@ def service_uppir_clients(myxordatastore, ip, port):
   assert(_global_myxordatastore != None)
 
   # create the handler / server
-  xorserver = ThreadedXORServer((ip, port), ThreadedXORRequestHandler)
-  
+#  xorserver = ThreadedXORServer((ip, port), ThreadedXORRequestHandler)  
+  #hack
+  xorserver = ThreadedXORServer(('0.0.0.0', port), ThreadedXORRequestHandler)
+
 
   # and serve forever!   This call will not return which is why we spawn a new
   # thread to handle it
